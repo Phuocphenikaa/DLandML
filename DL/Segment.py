@@ -20,8 +20,6 @@ class Unet(nn.Module):
     def __init__(self,in_channels = 1,out_channels = 1,size_image = (572,572)):
 
         super(Unet,self).__init__()
-
-
         features = [64,128,256,512]
 
         self.downsample = nn.ModuleList()
@@ -65,7 +63,4 @@ class Unet(nn.Module):
 
         return x
 
-model = Unet()
-x = torch.rand((3,1,512,512))
-print(model(x).shape)
 
