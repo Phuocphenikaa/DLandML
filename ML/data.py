@@ -7,6 +7,7 @@ def gendata():
     df.loc[df['Gender'] == "Female","Gender"] = 0
     df['Gender'] = df['Gender'].astype(int)
     X = df.iloc[:,:-1].values
+    X = (X-X.min(axis = 0,keepdims =True))/(X.max(axis = 0,keepdims =True)-X.min(axis = 0,keepdims =True))
     Y = df.iloc[:,-1].values
     x_train,x_test,y_train,y_test = train_test_split(X,Y,test_size=0.2)
     return x_train,x_test,y_train,y_test
